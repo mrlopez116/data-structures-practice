@@ -18,6 +18,10 @@
 // Networking
 // AI
 
+// Big O
+// Insertion - O(log n)
+// Serching - O(log n)
+
 // Kinds of trees
 class Node {
 	constructor(value) {
