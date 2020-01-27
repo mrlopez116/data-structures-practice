@@ -39,22 +39,28 @@ class BinarySearchTree {
 			return this;
 		}
 		let currentNode = this.root;
-		let check = true;
-		while (check) {
-			// If the
+		// While loop to traverse through the tree
+		while (true) {
+			// CHeck if the `newNode` is greater
 			if (newNode.value > currentNode.value) {
+				// If the `newNode` is greater check if the `currentNode.right` is present
 				if (currentNode.right) {
+					// If there is a `currentNode.right` set that as the new `currentNode`
 					currentNode = currentNode.right;
-				} else if (!currentNode.right) {
+				} else {
+					// If there is not a `currentNode.right` set it the `newNode`
 					currentNode.right = newNode;
-					check = false;
+					return this;
 				}
 			} else if (newNode.value < currentNode.value) {
+				// If the `newNode` is less check if the `currentNode.left` is present
 				if (currentNode.left) {
+					// If there is a `currentNode.left` set that as the new `currentNode`
 					currentNode = currentNode.left;
-				} else if (!currentNode.left) {
+				} else {
+					// If there is not a `currentNode.right` set it the `newNode
 					currentNode.left = newNode;
-					check = false;
+					return this;
 				}
 			}
 		}
