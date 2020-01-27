@@ -41,6 +41,8 @@ class BinarySearchTree {
 		let currentNode = this.root;
 		// While loop to traverse through the tree
 		while (true) {
+			// If there is already a value present in the tree return undefined
+			if (currentNode.value === val) return undefined;
 			// CHeck if the `newNode` is greater
 			if (newNode.value > currentNode.value) {
 				// If the `newNode` is greater check if the `currentNode.right` is present
@@ -62,6 +64,25 @@ class BinarySearchTree {
 					currentNode.left = newNode;
 					return this;
 				}
+			}
+		}
+	}
+
+	find(val) {
+		if (!this.root) return undefined;
+		let currentNode = this.root;
+		// While loop to traverse through the tree
+		while (true) {
+			// Run checks to see if we have found the value
+			if (val === currentNode.value) {
+				return currentNode;
+			} else if (val > currentNode.value && currentNode.left) {
+				currentNode = currentNode.left;
+			} else if (val < currentNode.value && currentNode.right) {
+				currentNode = currentNode.right;
+			} else {
+				// return null if we do not find the value.
+				return null;
 			}
 		}
 	}
